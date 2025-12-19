@@ -7,7 +7,11 @@ class Target(BaseModel):
     name = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
     notes = models.TextField()
-    mission = models.ForeignKey("Mission", on_delete=models.CASCADE, related_name="targets")
+    mission = models.ForeignKey(
+        "Mission",
+        on_delete=models.CASCADE,
+        related_name="targets"
+    )
     complete_state = models.BooleanField(default=False)
 
     class Meta:
@@ -19,7 +23,12 @@ class Target(BaseModel):
 
 
 class Mission(BaseModel):
-    cat = models.ForeignKey("cats.Cat", on_delete=models.SET_NULL, null=True, blank=True)
+    cat = models.ForeignKey(
+        "cats.Cat",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
     complete_state = models.BooleanField(default=False)
 
     class Meta:

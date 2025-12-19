@@ -15,9 +15,15 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += [path("yml/", SpectacularYAMLAPIView.as_view(), name="yml-schema")]
-    urlpatterns += [path("json/", SpectacularJSONAPIView.as_view(), name="schema")]
+    urlpatterns += static(
+        settings.STATIC_URL, document_root=settings.STATIC_ROOT
+    )
+    urlpatterns += [
+        path("yml/", SpectacularYAMLAPIView.as_view(), name="yml-schema")
+    ]
+    urlpatterns += [
+        path("json/", SpectacularJSONAPIView.as_view(), name="schema")
+    ]
     urlpatterns += [
         path(
             "swagger/",
@@ -25,4 +31,6 @@ if settings.DEBUG:
             name="swagger-ui",
         )
     ]
-    urlpatterns += [path("redoc/", SpectacularRedocView.as_view(), name="redoc")]
+    urlpatterns += [
+        path("redoc/", SpectacularRedocView.as_view(), name="redoc")
+    ]
