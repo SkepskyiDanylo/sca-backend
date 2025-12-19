@@ -28,5 +28,9 @@ class CatUpdateSerializer(serializers.ModelSerializer):
         model = Cat
         fields = (
             "id",
-            "salary"
+            "salary",
+            "years_of_experience",
+            "name",
+            "breed",
         )
+        read_only_fields = ("id", "name", "breed", "years_of_experience")
